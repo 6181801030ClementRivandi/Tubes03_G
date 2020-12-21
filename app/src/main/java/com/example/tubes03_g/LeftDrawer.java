@@ -15,26 +15,30 @@ public class LeftDrawer extends Fragment implements View.OnClickListener {
 
     public LeftDrawer(){}
 
-//    Button button1;
-//    Button button2;
-//    Button button3;
+    Button btnHome;
+    Button btnReports;
+    Button btnSetting;
+    Button btnExit;
+
     FragmentListener listener;
     DrawerLayout drawer;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.left_drawer,container,false);
 
-//        this.button1 = view.findViewById(R.id.home);
-//        button1.setOnClickListener(this);
-//
-//        this.button2 = view.findViewById(R.id.pg2);
-//        button2.setOnClickListener(this);
-//
-//        this.button3 = view.findViewById(R.id.exit);
-//        button3.setOnClickListener(this);
+        this.btnHome = view.findViewById(R.id.drawer_home);
+        btnHome.setOnClickListener(this);
+
+        this.btnReports = view.findViewById(R.id.drawer_reports);
+        btnReports.setOnClickListener(this);
+
+        this.btnSetting = view.findViewById(R.id.drawer_setting);
+        btnSetting.setOnClickListener(this);
+
+        this.btnExit = view.findViewById(R.id.drawer_exit);
+        btnExit.setOnClickListener(this);
 
         return view;
     }
@@ -60,14 +64,16 @@ public class LeftDrawer extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-//        if (v == button1){
-//            this.listener.changePage(1);
-//
-//        }else if ( v == button2){
-//            this.listener.changePage(2);
-//        }else{
-//            this.listener.closeApplication();
-//        }
+        if (v == btnHome){
+            this.listener.changePage(1);
+
+        }else if (v == btnReports){
+            this.listener.changePage(2);
+        }else if (v == btnSetting){
+            this.listener.changePage(3);
+        }else{
+            this.listener.closeApplication();
+        }
     }
 }
 

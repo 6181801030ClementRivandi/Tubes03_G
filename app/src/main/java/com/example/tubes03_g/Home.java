@@ -49,7 +49,7 @@ public class Home extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == this.button) {
-            listener.changePage(1);
+            listener.changePage(2);
         }
     }
 }

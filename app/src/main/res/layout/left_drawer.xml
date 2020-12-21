@@ -7,20 +7,27 @@
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/home"
+        android:id="@+id/drawer_home"
         android:text="Home"/>
 
     <Button
-        android:layout_marginTop="70px"
+        android:layout_marginTop="110px"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/pg2"
-        android:text="Page2"/>
+        android:id="@+id/drawer_reports"
+        android:text="Reports"/>
 
     <Button
-        android:layout_marginTop="140px"
+        android:layout_marginTop="225px"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/exit"
+        android:id="@+id/drawer_setting"
+        android:text="Setting"/>
+
+    <Button
+        android:layout_marginTop="340px"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/drawer_exit"
         android:text="Exit"/>
 </FrameLayout>
