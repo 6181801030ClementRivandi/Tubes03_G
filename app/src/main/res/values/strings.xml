@@ -2,4 +2,5 @@
     <string name="app_name">Tubes03_G</string>
     <string name="openDrawer">opendrawer</string>
     <string name="closeDrawer">closedrawer</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

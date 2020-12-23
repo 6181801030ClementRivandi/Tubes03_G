@@ -12,6 +12,8 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity implements FragmentListener{
 
     private Home home;
+    private MapsFragment mapsFragment;
+    private Reports reports;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction ft;
@@ -23,7 +25,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.home = home.newInstance();
+        this.home = Home.newInstance();
+        this.mapsFragment = MapsFragment.newInstance();
+        this.reports = Reports.newInstance();
 
         this.fragmentManager = this.getSupportFragmentManager();
         this.toolbar = findViewById(R.id.toolbar);
@@ -43,14 +47,17 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         this.ft = this.fragmentManager.beginTransaction();
 
         if (page == 1) {
-            ft.replace(R.id.fragment_container, this.home);
-        }/*else if (page == 2) {
-            ft.replace(R.id.fragment_container, this.gameFragment).addToBackStack(null);
-        }else if (page == 3) {
-            ft.replace(R.id.fragment_container, this.gameOverFragment).addToBackStack(null);
-        }else if (page == 4) {
-            ft.replace(R.id.fragment_container, this.settingFragment).addToBackStack(null);
-        }*/
+            ft.replace(R.id.fragment_container, this.mapsFragment);
+        }
+        else if (page == 2) {
+            ft.replace(R.id.fragment_container, this.reports).addToBackStack(null);
+        }
+//        else if (page == 3) {
+//            ft.replace(R.id.fragment_container, this.gameOverFragment).addToBackStack(null);
+//        }
+//        else if (page == 4) {
+//            ft.replace(R.id.fragment_container, this.settingFragment).addToBackStack(null);
+//        }
         this.ft.commit();
     }
 

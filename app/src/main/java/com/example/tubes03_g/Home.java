@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 public class Home extends Fragment implements View.OnClickListener {
 
@@ -52,4 +53,5 @@ public class Home extends Fragment implements View.OnClickListener {
             listener.changePage(2);
         }
     }
+
 }
