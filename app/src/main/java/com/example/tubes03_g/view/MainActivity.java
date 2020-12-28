@@ -1,4 +1,4 @@
-package com.example.tubes03_g;
+package com.example.tubes03_g.view;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,17 +7,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.Logger;
+import com.example.tubes03_g.R;
 
-public class MainActivity extends AppCompatActivity implements FragmentListener{
+public class MainActivity extends AppCompatActivity implements FragmentListener {
 
     private Home home;
     private MapsFragment mapsFragment;
     private Reports reports;
+    private Setting setting;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction ft;
@@ -32,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         this.home = Home.newInstance();
         this.mapsFragment = MapsFragment.newInstance();
         this.reports = Reports.newInstance();
+        this.setting = Setting.newInstance();
 
         this.fragmentManager = this.getSupportFragmentManager();
         this.toolbar = findViewById(R.id.toolbar);
@@ -39,13 +39,11 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
 
         this.drawer = findViewById(R.id.drawer_layout);
 
-        ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer,toolbar,R.string.openDrawer,R.string.closeDrawer);
+        ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer);
         drawer.addDrawerListener(abdt);
         abdt.syncState();
 
-        Logger.addLogAdapter(new AndroidLogAdapter());
-
-        this.changePage(1);
+        this.changePage(3);
     }
 
     @Override
@@ -54,21 +52,22 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
 
         if (page == 1) {
             ft.replace(R.id.fragment_container, this.mapsFragment);
-        }
-        else if (page == 2) {
+        } else if (page == 2) {
             ft.replace(R.id.fragment_container, this.reports).addToBackStack(null);
+        } else if (page == 3) {
+            ft.replace(R.id.fragment_container, this.setting).addToBackStack(null);
         }
-//        else if (page == 3) {
-//            ft.replace(R.id.fragment_container, this.gameOverFragment).addToBackStack(null);
-//        }
 //        else if (page == 4) {
 //            ft.replace(R.id.fragment_container, this.settingFragment).addToBackStack(null);
 //        }
+
+        this.drawer.close();
         this.ft.commit();
     }
 
     @Override
     public void closeApplication() {
-
+        moveTaskToBack(true);
+        finish();
     }
 }

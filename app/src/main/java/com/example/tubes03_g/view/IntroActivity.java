@@ -1,4 +1,4 @@
-package com.example.tubes03_g;
+package com.example.tubes03_g.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.tubes03_g.R;
 import com.github.appintro.AppIntro;
 import com.github.appintro.AppIntroFragment;
 

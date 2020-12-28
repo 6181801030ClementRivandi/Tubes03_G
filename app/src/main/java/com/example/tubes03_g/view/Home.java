@@ -1,17 +1,16 @@
-package com.example.tubes03_g;
+package com.example.tubes03_g.view;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
+
+import com.example.tubes03_g.R;
 
 public class Home extends Fragment implements View.OnClickListener {
 
@@ -19,7 +18,8 @@ public class Home extends Fragment implements View.OnClickListener {
     Button button;
     private FragmentListener listener;
 
-    public Home(){}
+    public Home() {
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home, container, false);
@@ -40,7 +40,7 @@ public class Home extends Fragment implements View.OnClickListener {
         }
     }
 
-    public static Home newInstance(){
+    public static Home newInstance() {
         Home fragment = new Home();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -53,5 +53,4 @@ public class Home extends Fragment implements View.OnClickListener {
             listener.changePage(2);
         }
     }
-
 }
