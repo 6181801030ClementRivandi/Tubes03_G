@@ -1,4 +1,4 @@
-package com.example.tubes03_g;
+package com.example.tubes03_g.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.tubes03_g.R;
 
 public class Reports extends Fragment {
     private ListView reportList;
