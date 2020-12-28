@@ -17,6 +17,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.orhanobut.logger.Logger;
 
 public class MapsFragment extends Fragment implements View.OnClickListener {
     private FragmentListener listener;
@@ -84,6 +85,7 @@ public class MapsFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (btnViewReport == v) {
+//            Logger.d("hello"); coba logger
             this.listener.changePage(2);
         }
     }
