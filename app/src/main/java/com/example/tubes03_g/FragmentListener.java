@@ -1,7 +1,6 @@
-package com.example.tubes03_g.view;
+package com.example.tubes03_g;
 
 public interface FragmentListener {
     void changePage(int page);
-
     void closeApplication();
 }
