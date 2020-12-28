@@ -7,7 +7,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener{
 
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer,toolbar,R.string.openDrawer,R.string.closeDrawer);
         drawer.addDrawerListener(abdt);
         abdt.syncState();
+
+        Logger.addLogAdapter(new AndroidLogAdapter());
 
         this.changePage(1);
     }
