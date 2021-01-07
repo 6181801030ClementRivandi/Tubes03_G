@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         drawer.addDrawerListener(abdt);
         abdt.syncState();
 
-        this.changePage(3);
+        this.changePage(1);
     }
 
     @Override
