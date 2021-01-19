@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.tubes03_g.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,9 +21,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsFragment extends Fragment implements View.OnClickListener {
+public class ReportsDetail extends Fragment implements View.OnClickListener {
     private FragmentListener listener;
     Button btnViewReport;
+    ImageView ivDetail;
+    TextView tvTitle, tvType, tvDate, tvLocation, tvDesc;
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -47,7 +51,14 @@ public class MapsFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_maps, container, false);
+        View view = inflater.inflate(R.layout.reports_detail, container, false);
+
+        this.ivDetail = view.findViewById(R.id.iv_detail);
+        this.tvDate = view.findViewById(R.id.report_date);
+        this.tvDesc = view.findViewById(R.id.report_description);
+        this.tvLocation = view.findViewById(R.id.report_location);
+        this.tvTitle = view.findViewById(R.id.report_title);
+        this.tvType = view.findViewById(R.id.report_type);
 
         this.btnViewReport = view.findViewById(R.id.btn_viewreport);
         this.btnViewReport.setOnClickListener(this);
@@ -75,8 +86,8 @@ public class MapsFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    public static MapsFragment newInstance() {
-        MapsFragment fragment = new MapsFragment();
+    public static ReportsDetail newInstance() {
+        ReportsDetail fragment = new ReportsDetail();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;

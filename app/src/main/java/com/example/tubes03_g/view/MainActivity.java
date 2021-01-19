@@ -13,8 +13,7 @@ import com.example.tubes03_g.R;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener {
 
-    private Home home;
-    private MapsFragment mapsFragment;
+    private ReportsDetail reportsDetail;
     private Reports reports;
     private Setting setting;
 
@@ -28,8 +27,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.home = Home.newInstance();
-        this.mapsFragment = MapsFragment.newInstance();
+        this.reportsDetail = ReportsDetail.newInstance();
         this.reports = Reports.newInstance();
         this.setting = Setting.newInstance();
 
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         this.ft = this.fragmentManager.beginTransaction();
 
         if (page == 1) {
-            ft.replace(R.id.fragment_container, this.mapsFragment);
+            ft.replace(R.id.fragment_container, this.reportsDetail);
         } else if (page == 2) {
             ft.replace(R.id.fragment_container, this.reports).addToBackStack(null);
         } else if (page == 3) {

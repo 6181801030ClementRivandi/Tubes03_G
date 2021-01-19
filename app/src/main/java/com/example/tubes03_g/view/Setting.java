@@ -1,5 +1,6 @@
 package com.example.tubes03_g.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,8 +16,8 @@ import androidx.fragment.app.Fragment;
 import com.example.tubes03_g.R;
 
 public class Setting extends Fragment implements CompoundButton.OnCheckedChangeListener {
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch switchTheme;
-    private int currentMode;
     private SharedPreferences sharedPref;
 
     public Setting() {
@@ -58,16 +59,16 @@ public class Setting extends Fragment implements CompoundButton.OnCheckedChangeL
     }
 
     public void loadData() {
-        currentMode = AppCompatDelegate.getDefaultNightMode();
+        sharedPref = getActivity().getSharedPreferences("SETTING", Context.MODE_PRIVATE);
+        boolean savedBoolean = sharedPref.getBoolean("IsSwitch", false);
+        switchTheme.setChecked(savedBoolean);
+
+        int currentMode = AppCompatDelegate.getDefaultNightMode();
         if (currentMode == AppCompatDelegate.MODE_NIGHT_YES) {
             switchTheme.setChecked(true);
         } else {
             switchTheme.setChecked(false);
         }
-
-        sharedPref = getActivity().getSharedPreferences("SETTING", Context.MODE_PRIVATE);
-        boolean savedBoolean = sharedPref.getBoolean("IsSwitch", false);
-        switchTheme.setChecked(savedBoolean);
     }
 
 }
