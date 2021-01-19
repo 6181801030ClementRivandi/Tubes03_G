@@ -31,7 +31,7 @@ public class Reports extends Fragment implements PostCalculateTask.IMainActivity
 
     private Spinner dropdown;
     private ListView reportList;
-    //private IncidentListAdapter adapter;
+    private IncidentListAdapter adapter;
     private FragmentListener listener;
     private Activity activity;
     PostCalculateTask postCalculateTask;
@@ -41,7 +41,9 @@ public class Reports extends Fragment implements PostCalculateTask.IMainActivity
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.reports, container, false);
 
-        this.dropdown = view.findViewById(R.id.inc_dropdown);
+
+        this.dropdown = view.findViewById(R.id.spinner_reports);
+
         String[] incType = new String[]{"crash", "hazard", "theft", "unconfirmed", "infrastructure_issue", "chop_shop"};
 
         ArrayAdapter<String> adapterdd = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, incType);
@@ -49,7 +51,8 @@ public class Reports extends Fragment implements PostCalculateTask.IMainActivity
 
         this.reportList = view.findViewById(R.id.list_reports);
         activity = this.getActivity();
-        //this.adapter = new IncidentListAdapter(activity);
+
+        this.adapter = new IncidentListAdapter(activity);
 
         this.postCalculateTask = new PostCalculateTask(getContext(), this);
 

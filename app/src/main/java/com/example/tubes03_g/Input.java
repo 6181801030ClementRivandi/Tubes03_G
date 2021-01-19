@@ -2,17 +2,17 @@ package com.example.tubes03_g;
 
 public class Input {
 
-    String incidentType;
+    String incType;
 
-    public Input(String incidentType) {
-        this.incidentType = incidentType;
+    public Input(String incType) {
+        this.incType = incType;
     }
 
-    public String getIncidentType() {
-        return incidentType;
+    public String getIncType() {
+        return incType;
     }
 
-    public void setIncidentType(String incidentType) {
-        this.incidentType = incidentType;
+    public void setIncType(String incType) {
+        this.incType = incType;
     }
 }
