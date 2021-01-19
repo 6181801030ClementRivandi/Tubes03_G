@@ -7,18 +7,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Spinner
+        android:id="@+id/inc_dropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown">
+    </Spinner>
+
     <ListView
         android:id="@+id/list_reports"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ListView>
-
-    <TextView
-        android:id="@+id/tv_sementara"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is Report Fragment"
-        android:layout_centerInParent="true"
-        />
+        android:layout_below="@+id/inc_dropdown">
+    </ListView>
 
 </RelativeLayout>
