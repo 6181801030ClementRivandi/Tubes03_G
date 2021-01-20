@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tubes03_g.PostCalculateTask;
 import com.example.tubes03_g.R;
 import com.example.tubes03_g.model.IncidentDetails;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,13 +22,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.squareup.picasso.Picasso;
+import com.orhanobut.logger.Logger;
 
 public class ReportsDetail extends Fragment implements View.OnClickListener, PostCalculateTask.IMainActivity1 {
     private FragmentListener listener;
-    Button btnViewReport;
+    Button btnBack;
     ImageView ivDetail;
-    TextView tvTitle, tvType, tvDate, tvLocation, tvDesc;
+    TextView tvTitle, tvLocation, tvDesc;
     String url = " ";
 
     private IncidentDetails incidentDetails;
@@ -64,14 +63,12 @@ public class ReportsDetail extends Fragment implements View.OnClickListener, Pos
         View view = inflater.inflate(R.layout.reports_detail, container, false);
 
         this.ivDetail = view.findViewById(R.id.iv_detail);
-        this.tvDate = view.findViewById(R.id.report_date);
         this.tvDesc = view.findViewById(R.id.report_description);
         this.tvLocation = view.findViewById(R.id.report_location);
         this.tvTitle = view.findViewById(R.id.report_title);
-        this.tvType = view.findViewById(R.id.report_type);
 
-        this.btnViewReport = view.findViewById(R.id.btn_viewreport);
-        this.btnViewReport.setOnClickListener(this);
+        this.btnBack = view.findViewById(R.id.btn_viewreport);
+        this.btnBack.setOnClickListener(this);
 
         Bundle bundle = getArguments();
         if ( bundle != null){
@@ -114,8 +111,8 @@ public class ReportsDetail extends Fragment implements View.OnClickListener, Pos
 
     @Override
     public void onClick(View v) {
-        if (btnViewReport == v) {
-//            Logger.d("hello"); coba logger
+        if (btnBack == v) {
+            Logger.d("TURN BACK");
             this.listener.changePage(1);
         }
     }

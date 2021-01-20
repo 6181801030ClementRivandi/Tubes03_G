@@ -1,13 +1,11 @@
 package com.example.tubes03_g.view;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +13,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import com.example.tubes03_g.PostCalculateTask;
 import com.example.tubes03_g.R;
-import com.example.tubes03_g.Result;
 import com.example.tubes03_g.model.IncidentDetails;
 import com.example.tubes03_g.presenter.IncidentsPresenter;
+import com.orhanobut.logger.Logger;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;

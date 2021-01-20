@@ -9,6 +9,14 @@
     <string name="btn_reports">Reports</string>
     <string name="btn_setting">Setting</string>
     <string name="btn_exit">Exit</string>
+
+<!--    Reports Detail-->
+    <string name="btn_back">Back</string>
+    <string name="tv_location">Location</string>
+    <string name="tv_description">Description</string>
+    <string name="not_available">Not available</string>
+    <string name="colon">:</string>
+
 </resources>
 
 <!--template-->

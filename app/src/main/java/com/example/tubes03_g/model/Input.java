@@ -1,4 +1,4 @@
-package com.example.tubes03_g;
+package com.example.tubes03_g.model;
 
 public class Input {
 

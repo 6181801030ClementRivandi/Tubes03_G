@@ -1,7 +1,6 @@
-package com.example.tubes03_g;
+package com.example.tubes03_g.view;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -10,14 +9,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tubes03_g.model.IncidentDetails;
-import com.example.tubes03_g.view.ReportsDetail;
+import com.example.tubes03_g.model.Input;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class PostCalculateTask {

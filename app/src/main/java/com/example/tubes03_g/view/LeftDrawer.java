@@ -64,7 +64,7 @@ public class LeftDrawer extends Fragment implements View.OnClickListener {
         if (v == btnReports){
             this.listener.changePage(1);
         }else if (v == btnSetting){
-            this.listener.changePage(2);
+            this.listener.changePage(3);
         }else{
             this.listener.closeApplication();
         }
