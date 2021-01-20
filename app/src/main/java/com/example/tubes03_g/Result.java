@@ -1,27 +1,22 @@
 package com.example.tubes03_g;
 
+import com.example.tubes03_g.model.IncidentDetails;
+
+
 public class Result {
-    String result;
-    String error;
 
-    public Result(String result, String error) {
-        this.result = result;
-        this.error = error;
+    IncidentDetails incidentDetails;
+
+    public Result(IncidentDetails incidentDetailsRes) {
+        this.incidentDetails = incidentDetailsRes;
     }
 
-    public String getResult() {
-        return result;
+    public IncidentDetails getIncidentDetails() {
+        return incidentDetails;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setIncidentDetails(IncidentDetails incidentDetails) {
+        this.incidentDetails = incidentDetails;
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
 }

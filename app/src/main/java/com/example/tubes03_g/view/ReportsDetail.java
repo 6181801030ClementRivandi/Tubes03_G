@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tubes03_g.PostCalculateTask;
 import com.example.tubes03_g.R;
+import com.example.tubes03_g.model.IncidentDetails;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,11 +24,15 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class ReportsDetail extends Fragment implements View.OnClickListener {
+public class ReportsDetail extends Fragment implements View.OnClickListener, PostCalculateTask.IMainActivity1 {
     private FragmentListener listener;
     Button btnViewReport;
     ImageView ivDetail;
     TextView tvTitle, tvType, tvDate, tvLocation, tvDesc;
+    private IncidentDetails incidentDetails;
+
+    public ReportsDetail(){
+    }
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -63,6 +70,13 @@ public class ReportsDetail extends Fragment implements View.OnClickListener {
         this.btnViewReport = view.findViewById(R.id.btn_viewreport);
         this.btnViewReport.setOnClickListener(this);
 
+        Bundle bundle = getArguments();
+        if ( bundle != null){
+            this.incidentDetails = bundle.getParcelable("incidentDetails");
+            Log.d("cobabos", incidentDetails.getTitle());
+//            this.tvTitle.setText(incidentDetails.getTitle());
+        }
+
         return view;
     }
 
@@ -97,7 +111,14 @@ public class ReportsDetail extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if (btnViewReport == v) {
 //            Logger.d("hello"); coba logger
-            this.listener.changePage(2);
+            this.listener.changePage(1);
         }
+    }
+
+    @Override
+    public void hasil(IncidentDetails hasilAkses) {
+        this.tvTitle.setText(hasilAkses.getTitle());
+        Log.d("hasil get", hasilAkses.getTitle());
+        Log.d("hasil", tvTitle.getText().toString());
     }
 }

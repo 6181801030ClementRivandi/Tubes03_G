@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.tubes03_g.R;
+import com.example.tubes03_g.model.IncidentDetails;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener {
 
@@ -49,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         this.ft = this.fragmentManager.beginTransaction();
 
         if (page == 1) {
-            ft.replace(R.id.fragment_container, this.reportsDetail);
+            ft.replace(R.id.fragment_container, this.reports);
         } else if (page == 2) {
-            ft.replace(R.id.fragment_container, this.reports).addToBackStack(null);
+            ft.replace(R.id.fragment_container, this.reportsDetail).addToBackStack(null);
         } else if (page == 3) {
             ft.replace(R.id.fragment_container, this.setting).addToBackStack(null);
         }
@@ -67,5 +68,12 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     public void closeApplication() {
         moveTaskToBack(true);
         finish();
+    }
+
+    public void psIncident(IncidentDetails incidentDetails) {
+        this.ft = this.fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("incidentDetails", incidentDetails);
+        this.reportsDetail.setArguments(bundle);
     }
 }

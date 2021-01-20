@@ -24,23 +24,30 @@ import androidx.fragment.app.Fragment;
 import com.example.tubes03_g.PostCalculateTask;
 import com.example.tubes03_g.R;
 import com.example.tubes03_g.Result;
+import com.example.tubes03_g.model.IncidentDetails;
+import com.example.tubes03_g.presenter.IncidentsPresenter;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
-public class Reports extends Fragment implements PostCalculateTask.IMainActivity{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Reports extends Fragment implements PostCalculateTask.IMainActivity1, IncidentsPresenter.IMainActivity{
 
     private Spinner dropdown;
     private ListView reportList;
+    private IncidentsPresenter presenter;
     private IncidentListAdapter adapter;
     private FragmentListener listener;
     private Activity activity;
+    private ArrayList<IncidentDetails> hasilIncident;
     PostCalculateTask postCalculateTask;
 
     public Reports(){}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.reports, container, false);
-
 
         this.dropdown = view.findViewById(R.id.spinner_reports);
 
@@ -49,10 +56,23 @@ public class Reports extends Fragment implements PostCalculateTask.IMainActivity
         ArrayAdapter<String> adapterdd = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, incType);
         dropdown.setAdapter(adapterdd);
 
-        this.reportList = view.findViewById(R.id.list_reports);
-        activity = this.getActivity();
+        hasilIncident = new ArrayList<>();
 
-        this.adapter = new IncidentListAdapter(activity);
+        this.reportList = view.findViewById(R.id.list_reports);
+        this.presenter = new IncidentsPresenter((IncidentsPresenter.IMainActivity)this);
+
+        this.adapter = new IncidentListAdapter((requireActivity()));
+        //this.presenter.loadData();
+        this.reportList.setAdapter(this.adapter);
+
+        this.reportList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                IncidentDetails incidentDetailsATM = (IncidentDetails) adapter.getItem(position);
+                Log.d("tag", adapter.getItem(position).toString());
+                listener.changePage(2);
+            }
+        });
 
         this.postCalculateTask = new PostCalculateTask(getContext(), this);
 
@@ -65,14 +85,34 @@ public class Reports extends Fragment implements PostCalculateTask.IMainActivity
 
                 NetworkCapabilities networkInfo = connMgr.getNetworkCapabilities(connMgr.getActiveNetwork());
 
-                String incidentType = "";
+                String[] incidentType = new String[1];
 
                 switch (position){
                     case 0:
                         //Toast.makeText(parent.getContext(), "crash", Toast.LENGTH_SHORT).show();
-                        incidentType = "incident_type=crash";
+                        presenter.refresh();
+                        incidentType[0] = incType[0];
                         break;
-
+                    case 1:
+                        presenter.refresh();
+                        incidentType[0] = incType[1];
+                        break;
+                    case 2:
+                        presenter.refresh();
+                        incidentType[0] = incType[2];
+                        break;
+                    case 3:
+                        presenter.refresh();
+                        incidentType[0] = "";
+                        break;
+                    case 4:
+                        presenter.refresh();
+                        incidentType[0] = incType[4];
+                        break;
+                    case 5:
+                        presenter.refresh();
+                        incidentType[0] = incType[5];
+                        break;
                 }
 
                 if ( networkInfo != null){
@@ -111,8 +151,14 @@ public class Reports extends Fragment implements PostCalculateTask.IMainActivity
     }
 
     @Override
-    public void setHasil(Result result) {
-        String hasil = result.getResult();
+    public void updateList(List<IncidentDetails> incidentDetailsUP) {
+        this.adapter.updateArray(incidentDetailsUP);
+    }
+
+    @Override
+    public void hasil(IncidentDetails hasilAkses) {
+        IncidentDetails tester = hasilAkses;
+        presenter.addList(tester.getTitle(), tester.getDescription(), tester.getAddress());
     }
 
 

@@ -30,8 +30,8 @@ public class IncidentListAdapter extends BaseAdapter {
         }
     }
 
-    public void addLine(IncidentDetails incident){
-        this.incidentDetailsList.add(incident);
+    public void addLine(IncidentDetails newIncident){
+        this.incidentDetailsList.add(newIncident);
         this.notifyDataSetChanged();
     }
 
