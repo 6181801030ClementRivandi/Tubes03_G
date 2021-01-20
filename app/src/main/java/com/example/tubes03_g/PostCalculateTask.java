@@ -27,7 +27,6 @@ public class PostCalculateTask {
     IMainActivity1 ui;
     Context context;
     Gson gson;
-    IncidentDetails incidentDetails;
 
     public PostCalculateTask(Context context, IMainActivity1 ui){
         this.ui = ui;
@@ -52,6 +51,7 @@ public class PostCalculateTask {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, BASE_URL, json, new Response.Listener<JSONObject>() {
 
             private String title, description, address;
+            private int id;
             @Override
             public void onResponse(JSONObject jsonObject) {
 
@@ -59,12 +59,13 @@ public class PostCalculateTask {
 
                 try {
                     for ( int x = 0; x < jsonObject.getJSONArray("incidents").length(); x++){
+                        id = (Integer)jsonObject.getJSONArray("incidents").getJSONObject(x).get("id");
                         title = (String)jsonObject.getJSONArray("incidents").getJSONObject(x).get("title");
                         description = (String)jsonObject.getJSONArray("incidents").getJSONObject(x).get("description");
                         address = (String)jsonObject.getJSONArray("incidents").getJSONObject(x).get("address");
-                        incidentDetails = new IncidentDetails(0, this.title, this.description, this.address);
+                        IncidentDetails incidentDetails = new IncidentDetails(0, this.title, this.description, this.address);
                         //Log.d("tester", incidentDetails.getTitle());
-                        hasil.add(incidentDetails);
+                        //hasil.add(incidentDetails);
                         processResult(incidentDetails);
                     }
 

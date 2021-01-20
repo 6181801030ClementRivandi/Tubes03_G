@@ -75,5 +75,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         Bundle bundle = new Bundle();
         bundle.putParcelable("incidentDetails", incidentDetails);
         this.reportsDetail.setArguments(bundle);
+        changePage(2);
     }
 }

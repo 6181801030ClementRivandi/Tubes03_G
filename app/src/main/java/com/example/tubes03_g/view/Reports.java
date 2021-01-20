@@ -68,9 +68,9 @@ public class Reports extends Fragment implements PostCalculateTask.IMainActivity
         this.reportList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainActivity main = (MainActivity)getActivity();
                 IncidentDetails incidentDetailsATM = (IncidentDetails) adapter.getItem(position);
-                Log.d("tag", adapter.getItem(position).toString());
-                listener.changePage(2);
+                main.psIncident(incidentDetailsATM);
             }
         });
 

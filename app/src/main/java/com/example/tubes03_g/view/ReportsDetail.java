@@ -29,6 +29,7 @@ public class ReportsDetail extends Fragment implements View.OnClickListener, Pos
     Button btnViewReport;
     ImageView ivDetail;
     TextView tvTitle, tvType, tvDate, tvLocation, tvDesc;
+
     private IncidentDetails incidentDetails;
 
     public ReportsDetail(){
@@ -73,8 +74,9 @@ public class ReportsDetail extends Fragment implements View.OnClickListener, Pos
         Bundle bundle = getArguments();
         if ( bundle != null){
             this.incidentDetails = bundle.getParcelable("incidentDetails");
-            Log.d("cobabos", incidentDetails.getTitle());
-//            this.tvTitle.setText(incidentDetails.getTitle());
+            this.tvTitle.setText(incidentDetails.getTitle());
+            this.tvLocation.setText(incidentDetails.getAddress());
+            this.tvDesc.setText(incidentDetails.getDescription());
         }
 
         return view;
