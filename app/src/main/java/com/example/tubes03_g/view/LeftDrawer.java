@@ -16,7 +16,6 @@ public class LeftDrawer extends Fragment implements View.OnClickListener {
 
     public LeftDrawer(){}
 
-    Button btnHome;
     Button btnReports;
     Button btnSetting;
     Button btnExit;
@@ -28,9 +27,6 @@ public class LeftDrawer extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.left_drawer,container,false);
-
-        this.btnHome = view.findViewById(R.id.drawer_home);
-        btnHome.setOnClickListener(this);
 
         this.btnReports = view.findViewById(R.id.drawer_reports);
         btnReports.setOnClickListener(this);
@@ -65,13 +61,10 @@ public class LeftDrawer extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v == btnHome){
+        if (v == btnReports){
             this.listener.changePage(1);
-
-        }else if (v == btnReports){
-            this.listener.changePage(2);
         }else if (v == btnSetting){
-            this.listener.changePage(3);
+            this.listener.changePage(2);
         }else{
             this.listener.closeApplication();
         }

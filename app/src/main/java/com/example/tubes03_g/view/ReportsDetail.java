@@ -23,12 +23,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.squareup.picasso.Picasso;
 
 public class ReportsDetail extends Fragment implements View.OnClickListener, PostCalculateTask.IMainActivity1 {
     private FragmentListener listener;
     Button btnViewReport;
     ImageView ivDetail;
     TextView tvTitle, tvType, tvDate, tvLocation, tvDesc;
+    String url = " ";
 
     private IncidentDetails incidentDetails;
 
@@ -77,6 +79,7 @@ public class ReportsDetail extends Fragment implements View.OnClickListener, Pos
             this.tvTitle.setText(incidentDetails.getTitle());
             this.tvLocation.setText(incidentDetails.getAddress());
             this.tvDesc.setText(incidentDetails.getDescription());
+//            Picasso.get().load(incidentDetails.getURL).into(ivDetail);
         }
 
         return view;

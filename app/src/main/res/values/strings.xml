@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">Tubes03_G</string>
+    <string name="app_name">Bike Waze</string>
     <string name="openDrawer">opendrawer</string>
     <string name="closeDrawer">closedrawer</string>
     <string name="title_activity_maps">Map</string>
+
+<!--    Main Menu-->
+    <string name="tv_mainmenu">Main Menu</string>
+    <string name="btn_reports">Reports</string>
+    <string name="btn_setting">Setting</string>
+    <string name="btn_exit">Exit</string>
 </resources>
+
+<!--template-->
+<!--<string name=""></string>-->
