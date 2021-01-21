@@ -120,7 +120,5 @@ public class ReportsDetail extends Fragment implements View.OnClickListener, Pos
     @Override
     public void hasil(IncidentDetails hasilAkses) {
         this.tvTitle.setText(hasilAkses.getTitle());
-        Log.d("hasil get", hasilAkses.getTitle());
-        Log.d("hasil", tvTitle.getText().toString());
     }
 }

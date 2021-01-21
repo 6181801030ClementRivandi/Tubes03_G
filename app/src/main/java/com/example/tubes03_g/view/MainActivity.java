@@ -11,6 +11,8 @@ import android.os.Bundle;
 
 import com.example.tubes03_g.R;
 import com.example.tubes03_g.model.IncidentDetails;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener {
 
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer);
         drawer.addDrawerListener(abdt);
         abdt.syncState();
+
+        Logger.addLogAdapter(new AndroidLogAdapter());
 
         this.changePage(1);
     }
